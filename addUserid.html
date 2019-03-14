@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Top 8 Youtube Channels</title>
+</head>
+<body>
+	<div class="channel_1"><div class='channelName'></div><div class='subscriberCount'></div></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		const URL="https://api.myjson.com/bins/9ehp2";
+		var userids = [];
+
+		$.get(URL, function(data, textStatus, jqXHR) {
+			console.log(data);
+			userids = data;
+			userids.push("bananas");
+
+			$.ajax({
+			    url:URL,
+			    type:"PUT",
+			    data:JSON.stringify(userids),
+			    contentType:"application/json; charset=utf-8",
+			    dataType:"json",
+			    success: function(data, textStatus, jqXHR){
+			    	console.log(data);
+			    }
+			});
+		});
+
+
+		$.get(URL, function(data, textStatus, jqXHR) {
+			//console.log(data);
+		});
+	</script>
+</body>
+</html>
